@@ -1,7 +1,8 @@
 /*
  * Find the element that appears once
 Last Updated : 26 Jun, 2024
-Given an array where every element occurs three times, except one element which occurs only once. Find the element that occurs once.
+Given an array where every element occurs three times, except one element which occurs only once.
+Find the element that occurs once.
 
 Note: Expected time complexity is O(n) and O(1) extra space.
 
@@ -65,3 +66,33 @@ public class ElementOccursOnce {
         System.out.println("The element with single occurrence is " + getSingle(arr, n));
     }
 }
+
+
+/*
+  public class GFG {
+    // Method to find the element that occurs only once
+    static int getSingle(int arr[], int n) {
+        int ones = 0, twos = 0;
+        for (int i = 0; i < n; i++) {
+            // Update twos with bits that are common in ones and the new element
+            twos |= (ones & arr[i]);
+            // XOR ones with the new element
+            ones ^= arr[i];
+            // Common bits in ones and twos
+            int common_bit_mask = ~(ones & twos);
+            // Remove common bits from ones and twos
+            ones &= common_bit_mask;
+            twos &= common_bit_mask;
+        }
+        return ones; // The unique element
+    }
+
+    // Driver method
+    public static void main(String args[]) {
+        int arr[] = { 3, 3, 2, 3 };
+        int n = arr.length;
+        System.out.println("The element with single occurrence is " + getSingle(arr, n));
+    }
+}
+
+ */
