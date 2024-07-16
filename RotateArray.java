@@ -88,3 +88,47 @@ public class RotateArray {
     }
 }
 
+
+//==============================================Another Approach=============================================
+/*
+import java.util.Arrays;
+public class Main {
+    public static void main(String[] args) {
+        // Example array and value of k
+        int[] arr = {1, 2, 3, 4, 5, 6, 7};
+        int k = 3;
+
+        // Rotate the array
+        rotate(arr, k);
+
+        // Print the rotated array
+        System.out.println(Arrays.toString(arr));
+    }
+
+    public static void rotate(int[] arr, int k) {
+        int n = arr.length;
+        k = k % n; // In case k is greater than the length of the array
+        if (k < 0) {
+            k += n; // If k is negative, convert it to a positive rotation
+        }
+
+        // Create a temporary array to store rotated elements
+        int[] temp = new int[n];
+
+        // Copy the last k elements to the beginning of the temp array
+        for (int i = 0; i < k; i++) {
+            temp[i] = arr[n - k + i];
+        }
+
+        // Copy the first n-k elements to the temp array after the last k elements
+        for (int i = k; i < n; i++) {
+            temp[i] = arr[i - k];
+        }
+
+        // Copy the temp array back to the original array
+        System.arraycopy(temp, 0, arr, 0, n);
+    }
+}
+
+ */
+
