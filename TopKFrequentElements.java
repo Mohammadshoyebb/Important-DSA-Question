@@ -135,3 +135,76 @@ public class TopKFrequentElements {
         System.out.println("Min Heap Method: " + Arrays.toString(solution.topKFrequentMinHeap(nums, k))); // Output: [-2, 1]
     }
 }
+
+/*
+//============================================     MAX HEAP    =================================================
+class Solution {
+class Number implements Comparable<Number>{
+    int element;
+    int freq;
+    Number( int element, int freq){
+        this.element = element;
+        this.freq = freq;            
+    }
+    public int compareTo(Number that){
+        return that.freq - this.freq;
+    }
+}
+public int[] topKFrequent(int[] nums, int k) {
+    int result[] = new int[k];
+    Map<Integer, Integer> frequencyMap = new HashMap<>();
+    PriorityQueue<Number> pq = new PriorityQueue<>();
+    for (int n : nums) {
+        frequencyMap.put(n, frequencyMap.getOrDefault(n, 0) + 1);
+    }
+    for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+        Number number = new Number(entry.getKey(), entry.getValue());
+        pq.offer(number);
+    }
+    int index = 0;
+    while(index < k){
+        Number number = pq.poll();
+        result[index++] = number.element; // pq.poll().element;           
+    }
+    return result;
+}
+}
+
+
+
+//=================================MIN HEAP==================================================
+class Solution {
+class Number implements Comparable<Number>{
+    int element;
+    int freq;
+    Number( int element, int freq){
+        this.element = element;
+        this.freq = freq;            
+    }
+    public int compareTo(Number that){
+        return this.freq - that.freq;
+    }
+}
+public int[] topKFrequent(int[] nums, int k) {
+    int result[] = new int[k];
+    Map<Integer, Integer> frequencyMap = new HashMap<>();
+    PriorityQueue<Number> pq = new PriorityQueue<>();
+    for (int n : nums) {
+        frequencyMap.put(n, frequencyMap.getOrDefault(n, 0) + 1);
+    }
+    for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+        Number number = new Number(entry.getKey(), entry.getValue());
+        pq.offer(number);
+        if(pq.size() > k){
+            pq.poll();
+        }
+    }
+    int index = 0;
+    while(index < k){
+        Number number = pq.poll();
+        result[index++] = number.element; // pq.poll().element;           
+    }
+    return result;
+}
+}
+ */
