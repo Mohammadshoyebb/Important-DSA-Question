@@ -32,7 +32,7 @@
  * All the integers in rating are unique.
  */
 
- import java.util.*;
+ //import java.util.*;
 
  public class CountNumberOfTeams {
      // Method to count the number of valid teams
