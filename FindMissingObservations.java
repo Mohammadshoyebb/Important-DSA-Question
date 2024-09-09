@@ -92,7 +92,7 @@
 Alternate Approach:
 
 Instead of using two separate loops for base value and remainder handling,the distribution of the missing
- sum can be done more succinctly in a single loop by leveraging the index of the loop.
+sum can be done more succinctly in a single loop by leveraging the index of the loop.
 
 for (int i = 0; i < n; i++) {
     missing[i] = num + (i < remaining ? 1 : 0);
