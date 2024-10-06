@@ -42,28 +42,25 @@ public class SentenceSimilarityIII {
 
     // Method to check if two sentences are similar
     public static boolean areSentencesSimilar(String sentence1, String sentence2) {
-        // Split both sentences into words
-        String[] words1 = sentence1.split(" ");
-        String[] words2 = sentence2.split(" ");
-        
-        // Initialize two pointers
-        int i = 0;  // Pointer starting from the beginning
-        int j = 0;  // Pointer starting from the end
-        
-        // Move i forward as long as the words match from the start
-        while (i < words1.length && i < words2.length && words1[i].equals(words2[i])) {
-            i++;  // Move the start pointer forward
+        if(sentence1.length() > sentence2.length()){
+            return areSentencesSimilar(sentence2,  sentence1);
         }
+        String smallerSentence[] = sentence1.split(" ");
+        String largerSentence[] = sentence2.split(" ");
+
         
-        // Move j backward as long as the words match from the end
-        while (j < words1.length - i && j < words2.length - i && 
-               words1[words1.length - 1 - j].equals(words2[words2.length - 1 - j])) {
-            j++;  // Move the end pointer backward
+        int start = 0;
+        int end1 = smallerSentence.length-1;
+        int end2 = largerSentence.length-1;
+
+        while(start <= end1 && smallerSentence[start].equals(largerSentence[start])){
+            start++;
         }
-        
-        // If the sum of the matched parts from start and end covers one of the sentences,
-        // then the sentences are similar
-        return i + j == Math.min(words1.length, words2.length);
+        while(start <= end1 && smallerSentence[end1].equals(largerSentence[end2])){
+            end1--;
+            end2--;
+        }
+        return start>end1;
     }
 
     // Main method to test the solution with different test cases
