@@ -63,6 +63,8 @@ public class SentenceSimilarityIII {
         return start>end1;
     }
 
+    
+
     // Main method to test the solution with different test cases
     public static void main(String[] args) {
         // Test case 1
@@ -81,3 +83,45 @@ public class SentenceSimilarityIII {
         System.out.println(areSentencesSimilar(sentence1, sentence2));  // Output: true
     }
 }
+
+
+/*
+ import java.util.*;
+
+class Solution {
+    // Helper function to split a sentence into words and store them in a deque
+    private Deque<String> toDeque(String sentence) {
+        // Split the sentence by spaces and return a deque of words
+        return new LinkedList<>(Arrays.asList(sentence.split(" ")));
+    }
+
+    public boolean areSentencesSimilar(String sentence1, String sentence2) {
+        // Convert both sentences into deques of words
+        Deque<String> deque1 = toDeque(sentence1);
+        Deque<String> deque2 = toDeque(sentence2);
+        
+        // Ensure deque1 refers to the longer sentence
+        if (deque1.size() < deque2.size()) {
+            Deque<String> temp = deque1;
+            deque1 = deque2;
+            deque2 = temp;
+        }
+        
+        // Compare words from the front while they match
+        while (!deque2.isEmpty() && deque1.peekFirst().equals(deque2.peekFirst())) {
+            deque1.pollFirst(); // Remove the matching word from the front
+            deque2.pollFirst(); // Remove the matching word from the front
+        }
+        
+        // Compare words from the back while they match
+        while (!deque2.isEmpty() && deque1.peekLast().equals(deque2.peekLast())) {
+            deque1.pollLast(); // Remove the matching word from the back
+            deque2.pollLast(); // Remove the matching word from the back
+        }
+        
+        // The two sentences are similar if deque2 is empty after the comparisons
+        return deque2.isEmpty();
+    }
+}
+
+ */
