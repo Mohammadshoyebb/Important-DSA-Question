@@ -46,3 +46,27 @@
         System.out.println(solution.minimumSteps("0111")); // Output: 0
     }
 }
+
+//=============================================================================================================
+
+/*
+ 
+    class Solution {
+    public long minimumSteps(String s) {
+        int left = 0;
+        long countOnes = 0;  // c variable in the original code
+
+        // Traverse through the string
+        for (int cur = 0; cur < s.length(); cur++) {
+            if (s.charAt(cur) == '0') {
+                countOnes += (cur-left);
+                left++ ; // Count how many '1's have been seen
+            }
+        }
+
+        return countOnes;
+    }
+}
+    
+
+ */
